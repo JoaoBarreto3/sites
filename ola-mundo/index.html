@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olá, Mundo!</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
+    background-size: 200% 200%;
+    animation: fundo 12s ease infinite;
+    color: #fff;
+    padding: 1.5rem;
+  }
+  @keyframes fundo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  main {
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  }
+  .emoji { font-size: 4rem; display: inline-block; animation: acenar 2s ease-in-out infinite; transform-origin: 70% 70%; }
+  @keyframes acenar {
+    0%, 100% { transform: rotate(0); }
+    20% { transform: rotate(18deg); }
+    40% { transform: rotate(-12deg); }
+    60% { transform: rotate(14deg); }
+    80% { transform: rotate(-6deg); }
+  }
+  h1 { font-size: clamp(2rem, 8vw, 3rem); margin: 1rem 0 0.75rem; }
+  p { font-size: 1.1rem; line-height: 1.6; opacity: 0.95; }
+  button {
+    margin-top: 1.75rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4f46e5;
+    background: #fff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  button:hover { transform: scale(1.05); }
+  #msg { margin-top: 1rem; min-height: 1.5rem; font-weight: 500; }
+</style>
+</head>
+<body>
+  <main>
+    <span class="emoji">👋</span>
+    <h1>Olá, Mundo!</h1>
+    <p>Bem-vindo! Esta página foi criada pelo bot do meu Redmi 9C, um pequeno celular que trabalha como servidor aqui em casa.</p>
+    <button id="botao">Dizer olá</button>
+    <div id="msg"></div>
+  </main>
+  <script>
+    const msgs = [
+      "Olá! Saudações direto do Redmi 9C 📱",
+      "Oi! O servidor está firme e forte 💪",
+      "E aí! Obrigado pela visita 😄",
+      "Tudo bem? Volte sempre! 🚀"
+    ];
+    let i = 0;
+    document.getElementById("botao").addEventListener("click", () => {
+      document.getElementById("msg").textContent = msgs[i++ % msgs.length];
+    });
+  </script>
+</body>
+</html>
